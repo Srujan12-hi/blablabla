@@ -38,7 +38,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me/EE_Movies"
+                                    'Join', url="https://t.me/EE_Movies"
                                 )
                         ]
                     ]
@@ -57,7 +57,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me/EE_Movies"
+                                    'Join', url="https://t.me/EE_Movies"
                                 )
                         ]
                     ]
@@ -76,7 +76,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me/EE_Movies"
+                                    'Join', url="https://t.me/EE_Movies"
                                 )
                         ]
                     ]

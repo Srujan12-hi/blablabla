@@ -23,7 +23,7 @@ USER_SESSION = os.environ.get("USER_SESSION")
 
 LOG_CHAN = int(os.environ.get("LOG_CHANNEL"))
 
-verify = {}
+VERIFY = {}
 
 logging.basicConfig(
     level=logging.INFO,

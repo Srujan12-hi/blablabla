@@ -1639,13 +1639,11 @@ async def callback_data(bot, update: CallbackQuery):
 
     if query_data == "start":
         buttons = [[
-            InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/EE_Movies'),
-            InlineKeyboardButton('Source Code 🧾', url ='https://t.me/source_code_of_file_store_bot/2')
-        ],[
-            InlineKeyboardButton('Support 🛠', url='https://t.me/EE_Movies')
-        ],[
-            InlineKeyboardButton('Help ⚙', callback_data="help")
-        ]]
+        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/Ee_movies"),
+        InlineKeyboardButton("Help 💡", callback_data="help")
+    ],[
+        InlineKeyboardButton("About 📕 ", callback_data="about")
+    ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
@@ -1659,11 +1657,11 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "help":
         buttons = [[
-            InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('About 🚩', callback_data='about')
-        ],[
-            InlineKeyboardButton('Close 🔐', callback_data='close')
-        ]]
+        InlineKeyboardButton('Home 🏕', callback_data='start'),
+        InlineKeyboardButton('About 📕', callback_data='about')
+    ],[
+        InlineKeyboardButton('Close ❌', callback_data='close')
+    ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
@@ -1677,21 +1675,27 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "about": 
         buttons = [[
-            InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
-        ]]
+        InlineKeyboardButton('Help 💡', callback_data='help'),
+        InlineKeyboardButton('Home 🏕', callback_data='start')
+    ],[ 
+        InlineKeyboardButton('Close ❌', callback_data='close')
+    ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         
         await update.message.edit_text(
             Translation.ABOUT_TEXT,
             reply_markup=reply_markup,
-            parse_mode="html"
+            parse_mode="markdown",
+            disable_web_page_preview=True
         )
 
 
     elif query_data == "close":
         await update.message.delete()
+
+    elif query_data == "source_code":
+        await update.message.reply_sticker("CAACAgUAAxkBAAELN1thEREbgWp9bkV1Xna466QU3dblPAACDQIAAn7RKFXB_6qtDc73fSAE")
 
 
 

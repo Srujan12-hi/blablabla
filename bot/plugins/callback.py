@@ -1681,9 +1681,9 @@ async def callback_data(bot, update: CallbackQuery):
     ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
-        owner = await bot.get_users(int(1052793881))
+        #owner = await bot.get_users(int(1052793881))
         await update.message.edit_text(
-            Translation.ABOUT_TEXT.format(owner.mention),
+            Translation.ABOUT_TEXT,
             reply_markup=reply_markup,
             parse_mode="markdown",
             disable_web_page_preview=True

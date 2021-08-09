@@ -17,7 +17,7 @@ caption = """Join Our Channel for Latest Movies \n\nhttps://t.me/joinchat/OaTbzq
 mv_buttons =[[
         InlineKeyboardButton('Join Our Channel ', url=chan)
     ],[
-        InlineKeyboardButton('Share & Support Us', url='http://t.me/share/url?url=Join%2@Ee_Movies%20For%20Any%20Language%20Movies')
+        InlineKeyboardButton('Share & Support Us', url='http://t.me/share/url?url=Join%20@Ee_Movies%20For%20Any%20Language%20Movies')
     ]]
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)

@@ -37,7 +37,7 @@ Click the HELP button for help , click the ABOUT button for more info.!
 
 ○ Version : 1.0.0
 
-○ Creator : <a href="tg://user?id=1052793881">Srujan 12</a>
+○ Creator : {}
 
 ○ Channel : @Ee_Movies
 """

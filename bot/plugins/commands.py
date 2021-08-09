@@ -95,7 +95,7 @@ async def start(bot, update):
         InlineKeyboardButton("Help 💡", callback_data="help")
     ],[
         InlineKeyboardButton("About 📕", callback_data="about")
-    ],[ InlineKeyboardButton("Source ?" , callback_data="source_code")]]
+    ],[ InlineKeyboardButton("Source Code ?" , callback_data="source_code")]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     

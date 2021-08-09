@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) @AlbertEinsteinTG
+# (c) @MahanMVAdmin 
 
 import os
 import logging
@@ -21,7 +21,9 @@ DB_URI = os.environ.get("DB_URI")
 
 USER_SESSION = os.environ.get("USER_SESSION")
 
-VERIFY = {}
+LOG_CHAN = int(os.environ.get("LOG_CHANNEL"))
+
+verify = {}
 
 logging.basicConfig(
     level=logging.INFO,

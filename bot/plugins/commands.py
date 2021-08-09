@@ -91,7 +91,7 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/Ee_movies"),
+        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/Sruja_12"),
         InlineKeyboardButton("Help 💡", callback_data="help")
     ],[
         InlineKeyboardButton("About 📕", callback_data="about"),

@@ -17,7 +17,7 @@ caption = """Join Our Channel for Latest Movies \n\nhttps://t.me/joinchat/OaTbzq
 mv_buttons =[[
         InlineKeyboardButton('Join Our Channel ', url=chan)
     ],[
-        InlineKeyboardButton('Share Our Group', url='http://t.me/share/url?url=Join%2https://t.me/joinchat/V3MKrO4yndKapy5K0%20To%20Request%20Any%20Language%20Movies')
+        InlineKeyboardButton('Share & Support Us', url='http://t.me/share/url?url=Join%2@Ee_Movies%20For%20Any%20Language%20Movies')
     ]]
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
@@ -31,7 +31,7 @@ async def start(bot, update):
     usr_id, user_name, user_mention = " ", " ", " "
     usr_id, user_name, user_mention = update.from_user.id, update.from_user.username, update.from_user.mention
  
-    log_msgg = f"#NewRequest \nThis file was requested by {usr_id}\n{user_mention}\n@{user_name}"
+    log_msgg = f"#Request \nThis file was requested by {usr_id}\n{user_mention}\n @{user_name}"
 
     if file_uid:
         file_id, file_name, file_type = await db.get_file(file_uid)
@@ -91,11 +91,11 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/MahanMvAdmin"),
+        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/Ee_movies"),
         InlineKeyboardButton("Help 💡", callback_data="help")
     ],[
         InlineKeyboardButton("About 📕", callback_data="about")
-    ]]
+    ],[ InlineKeyboardButton("Source ?" , callback_data="source_code")]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
@@ -113,7 +113,8 @@ async def help(bot, update):
     buttons = [[
         InlineKeyboardButton('Home 🏕', callback_data='start'),
         InlineKeyboardButton('Close ❌', callback_data='close')
-    ]]
+    ],[ 
+        InlineKeyboardButton('Support Group' , url="https://t.me/joinchat/V3MKrO4yndKapy5K")]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     

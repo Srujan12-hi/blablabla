@@ -94,7 +94,8 @@ async def start(bot, update):
         InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/Ee_movies"),
         InlineKeyboardButton("Help 💡", callback_data="help")
     ],[
-        InlineKeyboardButton("About 📕", callback_data="about")
+        InlineKeyboardButton("About 📕", callback_data="about"),
+        InlineKeyboardButton("Close 🔐", callback_data="close")
     ],[ InlineKeyboardButton("Source Code ?" , callback_data="source_code")]]
     
     reply_markup = InlineKeyboardMarkup(buttons)

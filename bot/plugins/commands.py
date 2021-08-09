@@ -2,12 +2,23 @@
 # -*- coding: utf-8 -*-
 # (c) @AlbertEinsteinTG
 
+import asyncio
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from bot import Translation # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
-
+from bot import LOG_CHAN
 db = Database()
+
+chan = "https://t.me/Ee_Movies"
+
+caption = """Join Our Channel for Latest Movies \n\nhttps://t.me/joinchat/OaTbzqxxr0thNGY9"""
+
+mv_buttons =[[
+        InlineKeyboardButton('Join Our Channel ', url=chan)
+    ],[
+        InlineKeyboardButton('Share Our Group', url='http://t.me/share/url?url=Join%2https://t.me/joinchat/V3MKrO4yndKapy5K0%20To%20Request%20Any%20Language%20Movies')
+    ]]
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
@@ -17,71 +28,62 @@ async def start(bot, update):
     except IndexError:
         file_uid = False
     
+    usr_id, user_name, user_mention = " ", " ", " "
+    usr_id, user_name, user_mention = update.from_user.id, update.from_user.username, update.from_user.mention
+ 
+    log_msgg = f"#NewRequest \nThis file was requested by {usr_id}\n{user_mention}\n@{user_name}"
+
     if file_uid:
-        file_id, file_name, file_caption, file_type = await db.get_file(file_uid)
+        file_id, file_name, file_type = await db.get_file(file_uid)
         
         if (file_id or file_type) == None:
             return
         
-        caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>")
-        
         if file_type == "document":
         
-            await bot.send_document(
+            docc = await bot.send_document(
                 chat_id=update.chat.id,
                 document = file_id,
                 caption = caption,
-                parse_mode="html",
+                parse_mode="markdown",
                 reply_to_message_id=update.message_id,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton
-                                (
-                                    'Join', url="https://t.me/EE_Movies"
-                                )
-                        ]
-                    ]
-                )
+                reply_markup=InlineKeyboardMarkup(mv_buttons)
             )
+            forward_msg = await docc.forward(LOG_CHAN)
+            await forward_msg.reply_text(log_msgg,quote=True)
 
         elif file_type == "video":
         
-            await bot.send_video(
-                chat_id=update.chat.id,
-                video = file_id,
+            docc = await update.reply_video(
+                file_id,
                 caption = caption,
-                parse_mode="html",
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton
-                                (
-                                    'Join', url="https://t.me/EE_Movies"
-                                )
-                        ]
-                    ]
-                )
+                parse_mode="markdown",
+                quote=True,
+                reply_markup=InlineKeyboardMarkup(mv_buttons)
             )
-            
+            forward_msg = await docc.forward(LOG_CHAN)
+            await forward_msg.reply_text(log_msgg,quote=True)
+
         elif file_type == "audio":
         
-            await bot.send_audio(
-                chat_id=update.chat.id,
-                audio = file_id,
+            docc = await update.reply_audio(
+                file_id,
                 caption = caption,
-                parse_mode="html",
+                parse_mode="markdown",
+                quote=True,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton
                                 (
-                                    'Join', url="https://t.me/EE_Movies"
+                                    'Join', url=chan
                                 )
                         ]
                     ]
                 )
             )
+            forward_msg = await docc.forward(LOG_CHAN)
+            await forward_msg.reply_text(log_msgg,quote=True)
 
         else:
             print(file_type)
@@ -89,33 +91,28 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton('Developers', url='https://t.me/EE_Movies'),
-        InlineKeyboardButton('Source Code 🧾', url ='https://t.me/source_code_of_file_store_bot/2')
+        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/MahanMvAdmin"),
+        InlineKeyboardButton("Help 💡", callback_data="help")
     ],[
-        InlineKeyboardButton('Support 🛠', url='https://t.me/EE_Movies')
-    ],[
-        InlineKeyboardButton('Help ⚙', callback_data="help")
+        InlineKeyboardButton("About 📕", callback_data="about")
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await bot.send_message(
         chat_id=update.chat.id,
-        text=Translation.START_TEXT.format(
-                update.from_user.first_name),
+        text=Translation.START_TEXT.format(update.from_user.mention),
         reply_markup=reply_markup,
-        parse_mode="html",
-        reply_to_message_id=update.message_id
+        parse_mode="html", 
+        disable_web_page_preview=True
     )
 
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-        InlineKeyboardButton('Home ⚡', callback_data='start'),
-        InlineKeyboardButton('About 🚩', callback_data='about')
-    ],[
-        InlineKeyboardButton('Close 🔐', callback_data='close')
+        InlineKeyboardButton('Home 🏕', callback_data='start'),
+        InlineKeyboardButton('Close ❌', callback_data='close')
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -124,25 +121,6 @@ async def help(bot, update):
         chat_id=update.chat.id,
         text=Translation.HELP_TEXT,
         reply_markup=reply_markup,
-        parse_mode="html",
-        reply_to_message_id=update.message_id
-    )
-
-
-@Client.on_message(filters.command(["about"]) & filters.private, group=1)
-async def about(bot, update):
-    
-    buttons = [[
-        InlineKeyboardButton('Home ⚡', callback_data='start'),
-        InlineKeyboardButton('Close 🔐', callback_data='close')
-    ]]
-    reply_markup = InlineKeyboardMarkup(buttons)
-    
-    await bot.send_message(
-        chat_id=update.chat.id,
-        text=Translation.ABOUT_TEXT,
-        reply_markup=reply_markup,
-        disable_web_page_preview=True,
-        parse_mode="html",
-        reply_to_message_id=update.message_id
+        parse_mode="html", 
+        disable_web_page_preview=True
     )

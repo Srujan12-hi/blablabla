@@ -37,7 +37,7 @@ Click the HELP button for help , click the ABOUT button for more info.!
 
 ○ Version : 1.0.0
 
-○ Creator : {}
+○ Creator : @Sruja_12
 
 ○ Channel : @Ee_Movies
 """

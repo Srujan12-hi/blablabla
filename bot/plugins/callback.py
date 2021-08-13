@@ -1601,14 +1601,14 @@ async def cb_about(bot, update: CallbackQuery):
     text=f"<i><u>Bot's Status</u></i>\n"
     text+=f"\n<b><i>Bot's Uptime:</i></b> <code>{time_formatter(time.time() - start_uptime)}</code>\n"
     text+=f"\n<b><i>Bot Funtion:</i></b> <i>Auto Filter Files</i>\n"
-    text+=f"""\n<b><i>Bot Support:</i></b> <a href="https://t.me/EE_Movies">@EE_MOVIES</a>\n"""
+    text+=f"""\n<b><i>Bot Support:</i></b> <a href="https://t.me/Playit in One Movie>@playitkannada1</a>\n"""
     text+="""\n<b><i>Source Code:</i></b> <a href="https://t.me/source_code_of_file_store_bot/2">Source</a>"""
 
     buttons = [
         [
             InlineKeyboardButton
                 (
-                    "My Dev ⚡", url="https://t.me/EE_Movies"
+                    "My Dev ⚡", url="https://t.me/Rockers_5"
                 ),
                 
             InlineKeyboardButton
@@ -1639,7 +1639,7 @@ async def callback_data(bot, update: CallbackQuery):
 
     if query_data == "start":
         buttons = [[
-        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/Ee_movies"),
+        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/Rockers_5"),
         InlineKeyboardButton("Help 💡", callback_data="help")
     ],[
         InlineKeyboardButton("About 📕 ", callback_data="about")
@@ -1660,7 +1660,7 @@ async def callback_data(bot, update: CallbackQuery):
         InlineKeyboardButton('Home 🏕', callback_data='start'),
         InlineKeyboardButton('Close ❌', callback_data='close')
     ],[ 
-        InlineKeyboardButton('Support Group' , url="https://t.me/joinchat/V3MKrO4yndKapy5K")]]
+        InlineKeyboardButton('Support Group' , url="https://t.me/playitkannada1")]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
         

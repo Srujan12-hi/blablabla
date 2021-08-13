@@ -11,7 +11,7 @@ class Translation(object):
 
 Click the HELP button for help , click the ABOUT button for more info.!
 
-<b>👲 Maintained By:</b> <a href="tg://user?id=1052793881">Srujan 12</a>
+<b>👲 Maintained By:</b> <a href="tg://user?id=1342975946">🇰 🇦 🇷 🇳 🇦 🇹 🇦 🇰 🇦</a>
 """   
     
     HELP_TEXT = """
@@ -23,7 +23,7 @@ Click the HELP button for help , click the ABOUT button for more info.!
 
 ★ Join My Support Group to use me
 
-★ Join @Ee_Movies for More Details """
+★ Join @playitkannada1 for More Details """
     
     ABOUT_TEXT = """
 📕 𝐀𝐛𝐨𝐮𝐭 𝐌𝐞 ,
@@ -37,7 +37,7 @@ Click the HELP button for help , click the ABOUT button for more info.!
 
 ○ Version : 1.0.0
 
-○ Creator : @Sruja_12
+○ Creator : @Rockers_5
 
-○ Channel : @Ee_Movies
+○ Channel : @playitkannada1
 """

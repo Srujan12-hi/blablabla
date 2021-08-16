@@ -10,14 +10,14 @@ from bot.database import Database # pylint: disable=import-error
 from bot import LOG_CHAN
 db = Database()
 
-chan = "https://t.me/playitkannada1"
+chan = "https://t.me/AnjiKicchaMovies1"
 
-caption = """Join Our Channel for Latest Movies \n\nhttps://t.me/playitkannada1"""
+caption = """Join Our Channel for Latest Movies \n\nhttps://t.me/AnjiKicchaMovies1"""
 
 mv_buttons =[[
         InlineKeyboardButton('Join Our Channel ', url=chan)
     ],[
-        InlineKeyboardButton('Share & Support Us', url='http://t.me/share/url?url=Join%20@playitkannada1%20For%20Kannada%20Language%20Movies')
+        InlineKeyboardButton('Share & Support Us', url='http://t.me/share/url?url=Join%20@AnjiKicchaMovies1%20For%20Kannada%20Language%20Movies')
     ]]
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
@@ -91,7 +91,7 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/Rockers_5"),
+        InlineKeyboardButton("My Father 👨‍✈️", url="https://t.me/KicchaBossFan"),
         InlineKeyboardButton("Help 💡", callback_data="help")
     ],[
         InlineKeyboardButton("About 📕", callback_data="about"),
@@ -115,7 +115,7 @@ async def help(bot, update):
         InlineKeyboardButton('Home 🏕', callback_data='start'),
         InlineKeyboardButton('Close ❌', callback_data='close')
     ],[ 
-        InlineKeyboardButton('Support Group' , url="https://t.me/playitkannada1")]]
+        InlineKeyboardButton('Support Group' , url="https://t.me/AnjiKicchaMovies1")]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     

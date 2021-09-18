@@ -11,7 +11,7 @@ class Translation(object):
 
 Click the HELP button for help , click the ABOUT button for more info.!
 
-<b>👲 Maintained By:</b> <a href="tg://user?id=1342975946">🇰 🇦 🇷 🇳 🇦 🇹 🇦 🇰 🇦</a>
+<b>👲 Maintained By:</b> <i> [TRENDS MOVIE REQUEST](https://t.me/movie_request3)
 """   
     
     HELP_TEXT = """
@@ -37,7 +37,7 @@ Click the HELP button for help , click the ABOUT button for more info.!
 
 ○ Version : 1.0.0
 
-○ Creator : @Rockers_5
+○ Creator : @movie_request3
 
 ○ Channel : @playitkannada1
 """
